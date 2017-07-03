@@ -1,0 +1,25 @@
+.wp-todolist {
+  width: 400px;
+  margin: 50px auto;
+  &-list {
+    border: 1px solid #e6e6e6;
+    ul {
+      li {
+        padding-left: 16px;
+        line-height: 32px;
+        font-size: 16px;
+        color: #666666;
+        cursor: pointer;
+        &:not(:last-child) {
+          border-bottom: 1px solid #e6e6e6;
+        }
+      }
+    }
+  }
+  &-options {
+    margin-top: 5px;
+    button {
+        margin-right: 8px;
+    }
+  }
+}

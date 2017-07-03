@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+.water-container {
+  width: 100%;
+  height: 100%;
+}
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+span{
+  font-family: 'Amatic SC', cursive;
+  position: absolute;
+  font-size: 3em;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
