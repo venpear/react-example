@@ -17,9 +17,7 @@ class TodoList extends Component {
   }
   handlePressEnder = (e) => {
     console.log('input', input.value);
-    const {list} = this.state;
-    const value = e.target.value;
-
+    const { list } = this.state;
     this.setState({
       list: [
         ...list, {
@@ -28,6 +26,8 @@ class TodoList extends Component {
           completed: false
         }
       ]
+    },() => {
+      index++;
     });
   }
   filterList = () => {
@@ -69,8 +69,8 @@ class TodoList extends Component {
             {list.length ? 
               list.map((d, i) => (
                 <TodoItem 
-                  key={i} 
-                  idx={i} 
+                  key={d.index} 
+                  idx={d.index} 
                   completed={d.completed} 
                   name={d.name}
                   onChange={this.handleChange}
