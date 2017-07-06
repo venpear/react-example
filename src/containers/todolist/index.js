@@ -14,18 +14,20 @@ class TodoList extends Component {
       list: [],
       filter: 'all'
     }
+    this.input;
   }
   handlePressEnder = (e) => {
-    console.log('input', input.value);
     const { list } = this.state;
+    const name = e.target.value;
     this.setState({
       list: [
         ...list, {
           index,
-          name: e.target.value,
+          name,
           completed: false
         }
-      ]
+      ],
+      value: ''
     },() => {
       index++;
     });
@@ -53,17 +55,18 @@ class TodoList extends Component {
       }
     }));
   }
+  handleValue = (e) => {
+    console.log(e.target.value)
+    this.setState({vlaue: e.target.value});
+  }
   render() {
     const list = this.filterList();
-    console.log('list', list);
     return (
       <div className="wp-todolist">
         <Input
           type="text"
-          ref={node => {
-          input = node
-        }}
-          onPressEnter={this.handlePressEnder}/>
+          onPressEnter={this.handlePressEnder}
+        />
         <div className="wp-todolist-list">
           <ul>
             {list.length ? 

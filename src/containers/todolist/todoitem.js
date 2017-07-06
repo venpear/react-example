@@ -11,7 +11,7 @@ class TodoItem extends Component {
       completed: props.completed
     }
   }
-  handleClick =  () => {
+  handleClick = () => {
     if (this.props.onChange) {
       this.props.onChange(this.props.idx,!this.state.completed);
     }
@@ -19,9 +19,12 @@ class TodoItem extends Component {
   }
   render() {
     const { name } = this.props;
+    const { completed } = this.state;
     return (
       <li onClick={this.handleClick}>
-        <Radio disabled={this.state.completed}>{name}</Radio>
+        <Radio disabled={completed} checked={completed}>
+         <sapn style={{textDecoration: completed ? 'line-through' : ''}}>{name}</sapn>
+        </Radio>
       </li>
     )
   }
