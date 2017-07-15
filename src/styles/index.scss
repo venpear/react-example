@@ -1,2 +1,14 @@
-// @import './components/styles';
+//home
+.wp-list-wrapper {
+  margin: 0 auto;
+  width: 200px;
+  position: relative;
+  top: 100px;
+  .ant-menu-vertical {
+    border-right: none;
+  }
+}
+
+
+@import './components/styles';
 @import './containers/styles';

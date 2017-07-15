@@ -1,0 +1,19 @@
+.wp-todolist-wrapper {
+  border: 1px solid #d9d9d9;
+  li {
+    line-height: 26px;
+    padding-left: 18px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666666;
+    &:hover {
+      background: #d9d9d9;
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid #d9d9d9;
+    }
+  }
+  .complated {
+    text-decoration: line-through;
+  }
+}

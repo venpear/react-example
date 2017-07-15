@@ -29,9 +29,9 @@ let reduxDevTools = function () {
 const configureStore = compose(
   reduxDevTools()
 )(createStore);
-// const store = configureStore(rootReducer);
+const store = configureStore(rootReducer);
 
-const store = createStore(rootReducer);
+// const store = createStore(rootReducer);
 
 // Render the main component into the dom
 export default class Root extends React.Component {

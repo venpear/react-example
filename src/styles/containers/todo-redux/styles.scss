@@ -1,4 +1,11 @@
-.sr-todoredux-wrapper {
+.wp-todoredux-wrapper {
+  position: relative;
+  top: 200px;
   width: 500px;
-  margin: 100px auto;
+  margin: 0 auto;
+  .option {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
 }
