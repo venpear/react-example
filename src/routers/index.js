@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Router, Route, browserHistory} from 'react-router';
+import { Provider, connect } from 'react-redux'
+import { createStore } from 'redux'
 
 //路由配置
 import App from 'containers/index';

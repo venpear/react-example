@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import update from 'react/lib/update';
-import {Button, Input} from 'antd';
+import {Input} from 'antd';
 import TodoItem from './todoitem';
 import Filter from './filter';
 import './styles.scss';
 
 let index = 0;
-let input = '';
 class TodoList extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +16,7 @@ class TodoList extends Component {
     this.input;
   }
   handlePressEnder = (e) => {
-    const { list } = this.state;
+    const {list} = this.state;
     const name = e.target.value;
     this.setState({
       list: [
@@ -28,13 +27,12 @@ class TodoList extends Component {
         }
       ],
       value: ''
-    },() => {
+    }, () => {
       index++;
     });
   }
   filterList = () => {
     const {filter, list} = this.state;
-    const filterList = [];
     switch (filter) {
       case 'all':
         return list;
@@ -46,40 +44,37 @@ class TodoList extends Component {
         return [];
     }
   }
-  handleChange = (idx,completed) => {
-    this.setState(update(this.state,{
+  handleChange = (idx, completed) => {
+    this.setState(update(this.state, {
       list: {
-        [idx]: {$merge: {
-          completed 
-        }}
+        [idx]: {
+          $merge: {
+            completed
+          }
+        }
       }
     }));
   }
   handleValue = (e) => {
-    console.log(e.target.value)
     this.setState({vlaue: e.target.value});
   }
   render() {
     const list = this.filterList();
     return (
       <div className="wp-todolist">
-        <Input
-          type="text"
-          onPressEnter={this.handlePressEnder}
-        />
+        <Input type="text" onPressEnter={this.handlePressEnder}/>
         <div className="wp-todolist-list">
           <ul>
-            {list.length ? 
-              list.map((d, i) => (
-                <TodoItem 
-                  key={d.index} 
-                  idx={d.index} 
-                  completed={d.completed} 
+            {list.length
+              ? list.map(d => (
+                <TodoItem
+                  key={d.index}
+                  idx={d.index}
+                  completed={d.completed}
                   name={d.name}
                   onChange={this.handleChange}
-                />)) 
-              : null
-            }
+                />))
+              : null}
           </ul>
         </div>
         <Filter
